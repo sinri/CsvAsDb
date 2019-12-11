@@ -28,11 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.labBtn1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PreprocessPluginCodeTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFilterCode = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.LoadCSVBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CPSIgnoreQuotesCheckerBox = new System.Windows.Forms.CheckBox();
@@ -53,6 +61,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.QuerySqlBtn = new System.Windows.Forms.Button();
             this.QuerySqlTextBox = new System.Windows.Forms.TextBox();
+            this.ExportSqlBtn = new System.Windows.Forms.Button();
             this.queryResultDataGridView = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -60,6 +69,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.bwForLoadCsvToDb = new System.ComponentModel.BackgroundWorker();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,6 +77,9 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreTailRowsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreHeaderRowsNumber)).BeginInit();
@@ -106,9 +119,9 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(13, 12);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -118,29 +131,33 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.richTextBox1);
             this.tabPage1.Controls.Add(this.labBtn1);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1010, 823);
+            this.tabPage1.Size = new System.Drawing.Size(1267, 1297);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Lab";
+            this.tabPage1.Text = "About";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // labBtn1
             // 
-            this.labBtn1.Location = new System.Drawing.Point(6, 5);
+            this.labBtn1.Location = new System.Drawing.Point(1112, 1245);
             this.labBtn1.Margin = new System.Windows.Forms.Padding(4);
             this.labBtn1.Name = "labBtn1";
             this.labBtn1.Size = new System.Drawing.Size(147, 44);
             this.labBtn1.TabIndex = 0;
             this.labBtn1.Text = "button1";
             this.labBtn1.UseVisualStyleBackColor = true;
+            this.labBtn1.Visible = false;
             this.labBtn1.Click += new System.EventHandler(this.LabBtn1_Click);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.LoadCSVBtn);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.SelectCsvDirBtn);
@@ -155,10 +172,87 @@
             this.tabPage2.Text = "Load CSV Directory";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.PreprocessPluginCodeTextBox);
+            this.groupBox3.Location = new System.Drawing.Point(20, 792);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1227, 134);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Preprocess Plugin Settings";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(1154, 21);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "If you have been informed with certain preprocess plugin settings code and you ne" +
+    "ed it, just input here.";
+            // 
+            // PreprocessPluginCodeTextBox
+            // 
+            this.PreprocessPluginCodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PreprocessPluginCodeTextBox.Location = new System.Drawing.Point(13, 30);
+            this.PreprocessPluginCodeTextBox.Name = "PreprocessPluginCodeTextBox";
+            this.PreprocessPluginCodeTextBox.Size = new System.Drawing.Size(1196, 31);
+            this.PreprocessPluginCodeTextBox.TabIndex = 0;
+            this.PreprocessPluginCodeTextBox.Text = "WSQ_A";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(21, 344);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1229, 442);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Field Filter Config";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnFilterCode});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 72;
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.Size = new System.Drawing.Size(1223, 412);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Column Name";
+            this.ColumnName.MinimumWidth = 9;
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.Width = 175;
+            // 
+            // ColumnFilterCode
+            // 
+            this.ColumnFilterCode.HeaderText = "Filter Code";
+            this.ColumnFilterCode.Items.AddRange(new object[] {
+            "ORIGINAL",
+            "REMOVE_NUMBERS"});
+            this.ColumnFilterCode.MinimumWidth = 9;
+            this.ColumnFilterCode.Name = "ColumnFilterCode";
+            this.ColumnFilterCode.Width = 175;
+            // 
             // LoadCSVBtn
             // 
             this.LoadCSVBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadCSVBtn.Location = new System.Drawing.Point(801, 346);
+            this.LoadCSVBtn.Location = new System.Drawing.Point(801, 934);
             this.LoadCSVBtn.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.LoadCSVBtn.Name = "LoadCSVBtn";
             this.LoadCSVBtn.Size = new System.Drawing.Size(449, 40);
@@ -380,23 +474,25 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.QuerySqlBtn, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.QuerySqlTextBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ExportSqlBtn, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(379, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.77923F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11088F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.10989F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(873, 393);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // QuerySqlBtn
             // 
             this.QuerySqlBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.QuerySqlBtn.Location = new System.Drawing.Point(3, 352);
+            this.QuerySqlBtn.Location = new System.Drawing.Point(3, 308);
             this.QuerySqlBtn.Name = "QuerySqlBtn";
-            this.QuerySqlBtn.Size = new System.Drawing.Size(867, 38);
+            this.QuerySqlBtn.Size = new System.Drawing.Size(867, 37);
             this.QuerySqlBtn.TabIndex = 1;
-            this.QuerySqlBtn.Text = "Query";
+            this.QuerySqlBtn.Text = "Query For Quick View";
             this.QuerySqlBtn.UseVisualStyleBackColor = true;
             this.QuerySqlBtn.Click += new System.EventHandler(this.QuerySqlBtn_Click);
             // 
@@ -407,8 +503,19 @@
             this.QuerySqlTextBox.Multiline = true;
             this.QuerySqlTextBox.Name = "QuerySqlTextBox";
             this.QuerySqlTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.QuerySqlTextBox.Size = new System.Drawing.Size(867, 343);
+            this.QuerySqlTextBox.Size = new System.Drawing.Size(867, 299);
             this.QuerySqlTextBox.TabIndex = 0;
+            // 
+            // ExportSqlBtn
+            // 
+            this.ExportSqlBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ExportSqlBtn.Location = new System.Drawing.Point(3, 356);
+            this.ExportSqlBtn.Name = "ExportSqlBtn";
+            this.ExportSqlBtn.Size = new System.Drawing.Size(867, 34);
+            this.ExportSqlBtn.TabIndex = 2;
+            this.ExportSqlBtn.Text = "Query and Export to CSV...";
+            this.ExportSqlBtn.UseVisualStyleBackColor = true;
+            this.ExportSqlBtn.Click += new System.EventHandler(this.ExportSqlBtn_Click);
             // 
             // queryResultDataGridView
             // 
@@ -452,6 +559,7 @@
             this.logTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.logTextBox.Multiline = true;
             this.logTextBox.Name = "logTextBox";
+            this.logTextBox.ReadOnly = true;
             this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.logTextBox.Size = new System.Drawing.Size(664, 1300);
             this.logTextBox.TabIndex = 0;
@@ -467,16 +575,28 @@
             // 
             this.saveFileDialog1.Filter = "CSV Files|*.csv";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(4, 4);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(1259, 1289);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1991, 1356);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "CSV as Database Toolkit - Leqee - Sinri Edogawa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -486,6 +606,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreTailRowsNumber)).EndInit();
@@ -541,6 +665,15 @@
         private System.Windows.Forms.TextBox QuerySqlTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnFilterCode;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox PreprocessPluginCodeTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button ExportSqlBtn;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

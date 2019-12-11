@@ -75,22 +75,35 @@ namespace CsvAsDb
             public string fieldType;// TEXT INT REAL NUMERIC etc.
         }
 
+        //private List<Dictionary<string, string>> buffer=new List<Dictionary<string, string>>();
+        private string InsertSqlTemplate = null;
+
+        protected string GenerateSingleInsertSqlTemplate()
+        {
+            if (InsertSqlTemplate == null)
+            {
+                InsertSqlTemplate = "INSERT INTO " + TableName + " ( ";
+                for (int i = 0; i < FieldDefinitions.Count(); i++)
+                {
+                    InsertSqlTemplate += FieldDefinitions[i].fieldName + (i < FieldDefinitions.Count() - 1 ? "," : "") + " ";
+                }
+                InsertSqlTemplate += " ) VALUES ( ";
+                for (int i = 0; i < FieldDefinitions.Count(); i++)
+                {
+                    InsertSqlTemplate += "@" + FieldDefinitions[i].fieldName + (i < FieldDefinitions.Count() - 1 ? "," : "") + " ";
+                }
+                InsertSqlTemplate += ")";
+            }
+            return InsertSqlTemplate;
+        }
+
+
         public void InsertRow(Dictionary<string,string> rowData)
         {
             var cmd = new SQLiteCommand(sqliteConnection);
 
-            string insertSql = "INSERT INTO " + TableName + " ( ";
-            for(int i=0;i< FieldDefinitions.Count();i++)
-            {
-                insertSql += FieldDefinitions[i].fieldName + (i < FieldDefinitions.Count() - 1 ? "," : "") + " ";
-            }
-            insertSql += " ) VALUES ( ";
-            for (int i = 0; i < FieldDefinitions.Count(); i++)
-            {
-                insertSql += "@"+FieldDefinitions[i].fieldName + (i < FieldDefinitions.Count() - 1 ? "," : "") + " ";
-            }
-            insertSql += ")";
-            cmd.CommandText = insertSql;
+            //string insertSql = GenerateSingleInsertSqlTemplate();
+            cmd.CommandText = GenerateSingleInsertSqlTemplate();
 
             //cmd.CommandText = "INSERT INTO cars(name, price,code) VALUES(@name, @price,@code)";
 

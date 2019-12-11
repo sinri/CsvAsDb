@@ -10,11 +10,11 @@ namespace CsvAsDb
 {
     class CSVParser
     {
-        protected bool IgnoreQuotes { get; set; }
-        protected int CsvColumnLimit { get; set; }
-        protected int TopIgnoreRows { get; set; }
-        protected int BottomIgnoreRows { get; set; }
-        protected bool HasHeader { get; set; }
+        protected bool IgnoreQuotes { get;  }
+        protected int CsvColumnLimit { get; }
+        protected int TopIgnoreRows { get; }
+        protected int BottomIgnoreRows { get; }
+        protected bool HasHeader { get; }
 
         protected CsvReader csvReader;
         //protected CsvWriter csvWriter;
@@ -23,15 +23,23 @@ namespace CsvAsDb
         protected List<String> autoFieldNames;
         //protected Dictionary<string, string> headerFieldNameDict;
 
+        protected Dictionary<string, string> FieldFilterConfig { get; }
+
+        private Dictionary<string, string> HeaderFieldNameDictionary;
+
         protected List<Dictionary<String, String>> cacheForBottomIgnoration;
 
-        public CSVParser(int columnLimit, bool hasHeader, int topIgnoreRows,int bottomIgnoreRows,bool ignoreIllegalQutes)
+        public CSVParser(int columnLimit, bool hasHeader, int topIgnoreRows,int bottomIgnoreRows,bool ignoreIllegalQutes, Dictionary<string, string> fieldFilterConfig)
         {
             this.CsvColumnLimit = columnLimit;
             this.TopIgnoreRows = topIgnoreRows;
             this.BottomIgnoreRows = bottomIgnoreRows;
             this.IgnoreQuotes = ignoreIllegalQutes;
             this.HasHeader = hasHeader;
+            this.FieldFilterConfig = fieldFilterConfig;
+
+            HeaderFieldNameDictionary = null;
+
         }
 
         public List<string> GetCurrentHeaders()
@@ -46,12 +54,19 @@ namespace CsvAsDb
 
         public Dictionary<string,string> GetHeaderFieldNameDictionary()
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            for(int i = 0; i < csvHeaders.Count; i++)
+            if (HeaderFieldNameDictionary == null)
             {
-                dict.Add(csvHeaders[i], autoFieldNames[i]);
+                HeaderFieldNameDictionary = new Dictionary<string, string>();
+                for (int i = 0; i < csvHeaders.Count; i++)
+                {
+                    if (FieldFilterConfig.Count > 0)
+                    {
+                        if (!FieldFilterConfig.ContainsKey(csvHeaders[i])) continue;
+                    }
+                    HeaderFieldNameDictionary.Add(csvHeaders[i], autoFieldNames[i]);
+                }
             }
-            return dict;
+            return HeaderFieldNameDictionary;
         }
 
         public String[] ReadFilesInDir(String dirPath,String limitExt)
@@ -119,17 +134,37 @@ namespace CsvAsDb
             if (csvReader.Read())
             {
                 Dictionary<String, String> row = new Dictionary<string, string>();
-                for(int i = 0; i < CsvColumnLimit; i++)
+                if (HeaderFieldNameDictionary.Count > 0)
                 {
-                    if(csvReader.TryGetField<String>(i,out string s))
+
+                    foreach(var entry in HeaderFieldNameDictionary)
                     {
-                        row.Add(csvHeaders[i], s);
-                    }
-                    else
-                    {
-                        row.Add(csvHeaders[i], "");
+                        if(csvReader.TryGetField<String>(entry.Key, out string s))
+                        {
+                            row.Add(entry.Key, s);
+                        }
+                        else
+                        {
+                            row.Add(entry.Key, "");
+                        }
                     }
                 }
+                /*
+                else
+                {
+                    for (int i = 0; i < CsvColumnLimit; i++)
+                    {
+                        if (csvReader.TryGetField<String>(i, out string s))
+                        {
+                            row.Add(csvHeaders[i], s);
+                        }
+                        else
+                        {
+                            row.Add(csvHeaders[i], "");
+                        }
+                    }
+                }
+                */
                 return row;
             }
             return null;
