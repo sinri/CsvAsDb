@@ -68,10 +68,12 @@ namespace CsvAsDb
                     List<string> headers = parser.GetCurrentHeaders();
                     List<string> fieldNames = parser.GetAutoFieldNames();
                     headerFieldNameMap = parser.GetHeaderFieldNameDictionary();
+                    /*
                     for (int j = 0; j < fieldNames.Count; j++)
                     {
-                        WriteLog("PARSED HEADER: " + headers[j] + " => " + fieldNames[j]);
+                        WriteLog("PARSED HEADER: " + headers[j] + " => " + fieldNames[j],"DEBUG");
                     }
+                    */
 
                     if (isFirstFile)
                     {
@@ -86,7 +88,7 @@ namespace CsvAsDb
                         Dictionary<string, string> dataRow = new Dictionary<string, string>();
                         foreach (var entry in rowDict)
                         {
-                            WriteLog("Entry: " + entry.Key + " => " + entry.Value);
+                            //WriteLog("Entry: " + entry.Key + " => " + entry.Value,"DEBUG");
                             dataRow.Add(headerFieldNameMap[entry.Key], entry.Value);
                         }
                         TheSqliteAgent.InsertRow(dataRow);
