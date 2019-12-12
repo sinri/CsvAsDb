@@ -51,11 +51,11 @@ namespace CsvAsDb
                 }
                 */
 
-                for (int i=0;i< dataGridView1.Rows.Count;i++)
+                for (int i=0;i< ColumnFilterDataGridView.Rows.Count;i++)
                 {
-                    if (dataGridView1.Rows[i].Cells[0].Value == null || dataGridView1.Rows[i].Cells[1].Value==null) continue;
+                    if (ColumnFilterDataGridView.Rows[i].Cells[0].Value == null || ColumnFilterDataGridView.Rows[i].Cells[1].Value==null) continue;
                     WriteLog("CHECK FILTER ITEM: "+i, "DEBUG");
-                    fieldFilterConfigDict.Add((string)dataGridView1.Rows[i].Cells[0].Value, (string)dataGridView1.Rows[i].Cells[1].Value);
+                    fieldFilterConfigDict.Add((string)ColumnFilterDataGridView.Rows[i].Cells[0].Value, (string)ColumnFilterDataGridView.Rows[i].Cells[1].Value);
                 }
                 foreach(var item in fieldFilterConfigDict)
                 {

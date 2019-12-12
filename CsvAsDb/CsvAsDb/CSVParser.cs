@@ -11,7 +11,7 @@ namespace CsvAsDb
     class CSVParser
     {
         protected bool IgnoreQuotes { get;  }
-        protected int CsvColumnLimit { get; }
+        protected int CsvColumnLimit { get; set; }
         protected int TopIgnoreRows { get; }
         protected int BottomIgnoreRows { get; }
         protected bool HasHeader { get; }
@@ -83,7 +83,7 @@ namespace CsvAsDb
             return array.ToArray();
         }
 
-        public bool OpenFileAndLoadFields(String file)
+        public void OpenFileAndLoadFields(String file)
         {
             csvReader = new CsvReader(new StreamReader(file, Encoding.Default));
             if (IgnoreQuotes)
@@ -100,19 +100,40 @@ namespace CsvAsDb
 
             csvHeaders = new List<string>();
             autoFieldNames = new List<string>();
+
             if (HasHeader)
             {
                 csvReader.Read();
                 csvReader.ReadHeader();
 
-                for (int i = 0; i < CsvColumnLimit; i++)
+                if (CsvColumnLimit > 0)
                 {
-                    String s = csvReader.GetField(i);
-                    csvHeaders.Add(s);
+                    for (int i = 0; i < CsvColumnLimit; i++)
+                    {
+                        String s = csvReader.GetField(i);
+                        csvHeaders.Add(s);
+                    }
+                }
+                else
+                {
+                    int x = 0;
+                    while (true)
+                    {
+                        String s;
+                        if (!csvReader.TryGetField<String>(x, out s)) break;
+                        if (s.Equals("")) break;
+                        csvHeaders.Add(s);
+                        x++;
+                    }
+                    CsvColumnLimit = x;
                 }
             }
             else
             {
+                if (CsvColumnLimit <= 0)
+                {
+                    throw new Exception("column limit is zero or lower while header not given");
+                }
                 for (int i = 0; i < CsvColumnLimit; i++)
                 {
                     String s = "Field_" + i;
@@ -125,8 +146,6 @@ namespace CsvAsDb
                 String s = "Field_" + i;
                 autoFieldNames.Add(s);
             }
-
-            return true;
         }
 
         protected Dictionary<String,String> ReadOneRow()
@@ -149,22 +168,7 @@ namespace CsvAsDb
                         }
                     }
                 }
-                /*
-                else
-                {
-                    for (int i = 0; i < CsvColumnLimit; i++)
-                    {
-                        if (csvReader.TryGetField<String>(i, out string s))
-                        {
-                            row.Add(csvHeaders[i], s);
-                        }
-                        else
-                        {
-                            row.Add(csvHeaders[i], "");
-                        }
-                    }
-                }
-                */
+
                 return row;
             }
             return null;

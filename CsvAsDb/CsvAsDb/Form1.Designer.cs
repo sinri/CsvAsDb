@@ -31,14 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.labBtn1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.PreprocessPluginCodeTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnFilterDataGridView = new System.Windows.Forms.DataGridView();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFilterCode = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.LoadCSVBtn = new System.Windows.Forms.Button();
@@ -63,23 +61,32 @@
             this.QuerySqlTextBox = new System.Windows.Forms.TextBox();
             this.ExportSqlBtn = new System.Windows.Forms.Button();
             this.queryResultDataGridView = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.CategoryFilterDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.SaveCategoryDictionaryFileBtn = new System.Windows.Forms.Button();
+            this.LoadCategoryDictionaryFileBtn = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.labBtn1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.bwForLoadCsvToDb = new System.ComponentModel.BackgroundWorker();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ResetCategoryDictionaryGridBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColumnFilterDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreTailRowsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreHeaderRowsNumber)).BeginInit();
@@ -92,6 +99,11 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultDataGridView)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoryFilterDataGridView)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,38 +133,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.HotTrack = true;
             this.tabControl1.Location = new System.Drawing.Point(13, 12);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1275, 1332);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.richTextBox1);
-            this.tabPage1.Controls.Add(this.labBtn1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 31);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1267, 1297);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "About";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // labBtn1
-            // 
-            this.labBtn1.Location = new System.Drawing.Point(1112, 1245);
-            this.labBtn1.Margin = new System.Windows.Forms.Padding(4);
-            this.labBtn1.Name = "labBtn1";
-            this.labBtn1.Size = new System.Drawing.Size(147, 44);
-            this.labBtn1.TabIndex = 0;
-            this.labBtn1.Text = "button1";
-            this.labBtn1.UseVisualStyleBackColor = true;
-            this.labBtn1.Visible = false;
-            this.labBtn1.Click += new System.EventHandler(this.LabBtn1_Click);
             // 
             // tabPage2
             // 
@@ -209,7 +198,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.ColumnFilterDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(21, 344);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1229, 442);
@@ -217,20 +206,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Field Filter Config";
             // 
-            // dataGridView1
+            // ColumnFilterDataGridView
             // 
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnFilterDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ColumnFilterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ColumnFilterDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnName,
             this.ColumnFilterCode});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 72;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1223, 412);
-            this.dataGridView1.TabIndex = 0;
+            this.ColumnFilterDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ColumnFilterDataGridView.Location = new System.Drawing.Point(3, 27);
+            this.ColumnFilterDataGridView.Name = "ColumnFilterDataGridView";
+            this.ColumnFilterDataGridView.RowHeadersWidth = 72;
+            this.ColumnFilterDataGridView.RowTemplate.Height = 33;
+            this.ColumnFilterDataGridView.Size = new System.Drawing.Size(1223, 412);
+            this.ColumnFilterDataGridView.TabIndex = 0;
             // 
             // ColumnName
             // 
@@ -532,6 +521,113 @@
             this.queryResultDataGridView.Size = new System.Drawing.Size(1255, 888);
             this.queryResultDataGridView.TabIndex = 3;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox5);
+            this.tabPage4.Controls.Add(this.groupBox4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 31);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Category Dictionary";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.CategoryFilterDataGridView);
+            this.groupBox5.Location = new System.Drawing.Point(6, 237);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1255, 1054);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Dictionary";
+            // 
+            // CategoryFilterDataGridView
+            // 
+            this.CategoryFilterDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.CategoryFilterDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.CategoryFilterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CategoryFilterDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CategoryFilterDataGridView.Location = new System.Drawing.Point(3, 27);
+            this.CategoryFilterDataGridView.Name = "CategoryFilterDataGridView";
+            this.CategoryFilterDataGridView.RowHeadersWidth = 72;
+            this.CategoryFilterDataGridView.RowTemplate.Height = 33;
+            this.CategoryFilterDataGridView.Size = new System.Drawing.Size(1249, 1024);
+            this.CategoryFilterDataGridView.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.ResetCategoryDictionaryGridBtn);
+            this.groupBox4.Controls.Add(this.SaveCategoryDictionaryFileBtn);
+            this.groupBox4.Controls.Add(this.LoadCategoryDictionaryFileBtn);
+            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1255, 225);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Persistence";
+            // 
+            // SaveCategoryDictionaryFileBtn
+            // 
+            this.SaveCategoryDictionaryFileBtn.Location = new System.Drawing.Point(16, 74);
+            this.SaveCategoryDictionaryFileBtn.Name = "SaveCategoryDictionaryFileBtn";
+            this.SaveCategoryDictionaryFileBtn.Size = new System.Drawing.Size(493, 37);
+            this.SaveCategoryDictionaryFileBtn.TabIndex = 1;
+            this.SaveCategoryDictionaryFileBtn.Text = "Save Category Dictionary File (CSV) ...";
+            this.SaveCategoryDictionaryFileBtn.UseVisualStyleBackColor = true;
+            this.SaveCategoryDictionaryFileBtn.Click += new System.EventHandler(this.SaveCategoryDictionaryFileBtn_Click);
+            // 
+            // LoadCategoryDictionaryFileBtn
+            // 
+            this.LoadCategoryDictionaryFileBtn.Location = new System.Drawing.Point(16, 30);
+            this.LoadCategoryDictionaryFileBtn.Name = "LoadCategoryDictionaryFileBtn";
+            this.LoadCategoryDictionaryFileBtn.Size = new System.Drawing.Size(493, 37);
+            this.LoadCategoryDictionaryFileBtn.TabIndex = 0;
+            this.LoadCategoryDictionaryFileBtn.Text = "Load Category Dictionary File (CSV) ...";
+            this.LoadCategoryDictionaryFileBtn.UseVisualStyleBackColor = true;
+            this.LoadCategoryDictionaryFileBtn.Click += new System.EventHandler(this.LoadCategoryDictionaryFileBtn_Click);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Controls.Add(this.labBtn1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 31);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "About";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(4, 4);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(1259, 1289);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // labBtn1
+            // 
+            this.labBtn1.Location = new System.Drawing.Point(1112, 1245);
+            this.labBtn1.Margin = new System.Windows.Forms.Padding(4);
+            this.labBtn1.Name = "labBtn1";
+            this.labBtn1.Size = new System.Drawing.Size(147, 44);
+            this.labBtn1.TabIndex = 0;
+            this.labBtn1.Text = "button1";
+            this.labBtn1.UseVisualStyleBackColor = true;
+            this.labBtn1.Visible = false;
+            this.labBtn1.Click += new System.EventHandler(this.LabBtn1_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
@@ -575,15 +671,20 @@
             // 
             this.saveFileDialog1.Filter = "CSV Files|*.csv";
             // 
-            // richTextBox1
+            // openFileDialog1
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(4, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1259, 1289);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.openFileDialog1.DefaultExt = "CSV Files|*.csv";
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // ResetCategoryDictionaryGridBtn
+            // 
+            this.ResetCategoryDictionaryGridBtn.Location = new System.Drawing.Point(16, 118);
+            this.ResetCategoryDictionaryGridBtn.Name = "ResetCategoryDictionaryGridBtn";
+            this.ResetCategoryDictionaryGridBtn.Size = new System.Drawing.Size(493, 37);
+            this.ResetCategoryDictionaryGridBtn.TabIndex = 2;
+            this.ResetCategoryDictionaryGridBtn.Text = "Reset Category Dictionary Grid";
+            this.ResetCategoryDictionaryGridBtn.UseVisualStyleBackColor = true;
+            this.ResetCategoryDictionaryGridBtn.Click += new System.EventHandler(this.ResetCategoryDictionaryGridBtn_Click);
             // 
             // Form1
             // 
@@ -603,13 +704,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColumnFilterDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreTailRowsNumber)).EndInit();
@@ -625,6 +725,11 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultDataGridView)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CategoryFilterDataGridView)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -666,7 +771,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ColumnFilterDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColumnFilterCode;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -674,6 +779,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ExportSqlBtn;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView CategoryFilterDataGridView;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button LoadCategoryDictionaryFileBtn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button SaveCategoryDictionaryFileBtn;
+        private System.Windows.Forms.Button ResetCategoryDictionaryGridBtn;
     }
 }
 
