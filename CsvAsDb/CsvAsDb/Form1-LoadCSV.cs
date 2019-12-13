@@ -32,7 +32,10 @@ namespace CsvAsDb
 
             toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
             toolStripProgressBar1.Value = 0;
-            bwForLoadCsvToDb.RunWorkerAsync();
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("plugin_code", PreprocessPluginCodeCombo.SelectedItem.ToString());
+            bwForLoadCsvToDb.RunWorkerAsync(parameters);
 
 
         }
@@ -42,7 +45,10 @@ namespace CsvAsDb
 
             try
             {
-                plugin = PluginInterface.buildPluginByCode(PreprocessPluginCodeTextBox.Text, this);
+                var pluginCodeText = (string)((Dictionary<string, object>)e.Argument)["plugin_code"];
+                    //PreprocessPluginCodeCombo.Text;
+                //var pluginCodeText = (string)PreprocessPluginCodeCombo.SelectedItem;
+                plugin = PluginInterface.buildPluginByCode(pluginCodeText, this);
                 WriteLog("Loaded Plugin: " + plugin);
 
                 Dictionary<string, string> fieldFilterConfigDict = new Dictionary<string, string>();
@@ -163,33 +169,6 @@ namespace CsvAsDb
                         {
                             plugin.PreprocessRawRow(dataRow, headerFieldNameMap);
                         }
-                        /*
-                        if (pluginCodes.Count>0)
-                        {
-                            //var pluginCodes=PreprocessPluginCodeTextBox.Text.Trim().Split(new string[] { " " },StringSplitOptions.RemoveEmptyEntries);
-                            //WriteLog("plugin codes: " + pluginCodes,"DEBUG");
-                            
-                            
-                            for(int pluginIndex = 0; pluginIndex < pluginCodes.Count; pluginIndex++)
-                            {
-                                //WriteLog("Handle plugin [" + pluginIndex + "] : " + pluginCodes[pluginIndex],"DEBUG");
-                                switch (pluginCodes[pluginIndex])
-                                {
-                                    case "WSQ_A":
-                                        if (wsq_a_target_list.Contains(dataRow[headerFieldNameMap["业务类型"]]))
-                                        {
-                                            dataRow[headerFieldNameMap["备注"]] = "";
-                                            dataRow[headerFieldNameMap["对方账号"]] = "";
-                                        }
-                                        break;
-                                    default:
-                                        WriteLog("Not a registered plugin, ignored","WARNING");
-                                        break;
-                                }
-                            }
-                            
-                        }
-                        */
 
                         TheSqliteAgent.InsertRow(dataRow);
                     }

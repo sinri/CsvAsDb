@@ -33,12 +33,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.PreprocessPluginCodeCombo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.PreprocessPluginCodeTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ColumnFilterDataGridView = new System.Windows.Forms.DataGridView();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFilterCode = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.LoadCSVBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CPSIgnoreQuotesCheckerBox = new System.Windows.Forms.CheckBox();
@@ -61,6 +57,11 @@
             this.QuerySqlTextBox = new System.Windows.Forms.TextBox();
             this.ExportSqlBtn = new System.Windows.Forms.Button();
             this.queryResultDataGridView = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ColumnFilterDataGridView = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFilterCode = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.CategoryFilterDataGridView = new System.Windows.Forms.DataGridView();
@@ -85,8 +86,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ColumnFilterDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreTailRowsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreHeaderRowsNumber)).BeginInit();
@@ -99,6 +98,9 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultDataGridView)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ColumnFilterDataGridView)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryFilterDataGridView)).BeginInit();
@@ -133,6 +135,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.HotTrack = true;
@@ -146,7 +149,6 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.LoadCSVBtn);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.SelectCsvDirBtn);
@@ -165,83 +167,43 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.PreprocessPluginCodeCombo);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.PreprocessPluginCodeTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(20, 792);
+            this.groupBox3.Location = new System.Drawing.Point(20, 344);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1227, 134);
+            this.groupBox3.Size = new System.Drawing.Size(1230, 84);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Preprocess Plugin Settings";
             // 
+            // PreprocessPluginCodeCombo
+            // 
+            this.PreprocessPluginCodeCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PreprocessPluginCodeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PreprocessPluginCodeCombo.FormattingEnabled = true;
+            this.PreprocessPluginCodeCombo.Items.AddRange(new object[] {
+            "FREE",
+            "WSQ_A",
+            "YLN_A"});
+            this.PreprocessPluginCodeCombo.Location = new System.Drawing.Point(583, 33);
+            this.PreprocessPluginCodeCombo.Name = "PreprocessPluginCodeCombo";
+            this.PreprocessPluginCodeCombo.Size = new System.Drawing.Size(641, 29);
+            this.PreprocessPluginCodeCombo.TabIndex = 2;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 84);
+            this.label5.Location = new System.Drawing.Point(9, 36);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1154, 21);
+            this.label5.Size = new System.Drawing.Size(560, 21);
             this.label5.TabIndex = 1;
-            this.label5.Text = "If you have been informed with certain preprocess plugin settings code and you ne" +
-    "ed it, just input here.";
-            // 
-            // PreprocessPluginCodeTextBox
-            // 
-            this.PreprocessPluginCodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PreprocessPluginCodeTextBox.Location = new System.Drawing.Point(13, 30);
-            this.PreprocessPluginCodeTextBox.Name = "PreprocessPluginCodeTextBox";
-            this.PreprocessPluginCodeTextBox.Size = new System.Drawing.Size(1196, 31);
-            this.PreprocessPluginCodeTextBox.TabIndex = 0;
-            this.PreprocessPluginCodeTextBox.Text = "YLN_A";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.ColumnFilterDataGridView);
-            this.groupBox2.Location = new System.Drawing.Point(21, 344);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1229, 442);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Field Filter Config";
-            // 
-            // ColumnFilterDataGridView
-            // 
-            this.ColumnFilterDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ColumnFilterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ColumnFilterDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnName,
-            this.ColumnFilterCode});
-            this.ColumnFilterDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ColumnFilterDataGridView.Location = new System.Drawing.Point(3, 27);
-            this.ColumnFilterDataGridView.Name = "ColumnFilterDataGridView";
-            this.ColumnFilterDataGridView.RowHeadersWidth = 72;
-            this.ColumnFilterDataGridView.RowTemplate.Height = 33;
-            this.ColumnFilterDataGridView.Size = new System.Drawing.Size(1223, 412);
-            this.ColumnFilterDataGridView.TabIndex = 0;
-            // 
-            // ColumnName
-            // 
-            this.ColumnName.HeaderText = "Column Name";
-            this.ColumnName.MinimumWidth = 9;
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.Width = 175;
-            // 
-            // ColumnFilterCode
-            // 
-            this.ColumnFilterCode.HeaderText = "Filter Code";
-            this.ColumnFilterCode.Items.AddRange(new object[] {
-            "ORIGINAL",
-            "REMOVE_NUMBERS"});
-            this.ColumnFilterCode.MinimumWidth = 9;
-            this.ColumnFilterCode.Name = "ColumnFilterCode";
-            this.ColumnFilterCode.Width = 175;
+            this.label5.Text = "Input your plugin code. Now available: WSQ_A YLN_A";
             // 
             // LoadCSVBtn
             // 
             this.LoadCSVBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadCSVBtn.Location = new System.Drawing.Point(801, 934);
+            this.LoadCSVBtn.Location = new System.Drawing.Point(801, 436);
             this.LoadCSVBtn.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.LoadCSVBtn.Name = "LoadCSVBtn";
             this.LoadCSVBtn.Size = new System.Drawing.Size(449, 40);
@@ -385,7 +347,6 @@
             this.SourceDirTextBox.Name = "SourceDirTextBox";
             this.SourceDirTextBox.Size = new System.Drawing.Size(1056, 31);
             this.SourceDirTextBox.TabIndex = 1;
-            this.SourceDirTextBox.Text = "\\\\vmware-host\\Shared Folders\\下载\\ahc-201911_2088131570315721\\xxx";
             // 
             // label1
             // 
@@ -520,6 +481,61 @@
             this.queryResultDataGridView.RowTemplate.Height = 33;
             this.queryResultDataGridView.Size = new System.Drawing.Size(1255, 888);
             this.queryResultDataGridView.TabIndex = 3;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.groupBox2);
+            this.tabPage5.Location = new System.Drawing.Point(4, 31);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Column Filters";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.ColumnFilterDataGridView);
+            this.groupBox2.Location = new System.Drawing.Point(18, 27);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1229, 442);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Field Filter Config";
+            // 
+            // ColumnFilterDataGridView
+            // 
+            this.ColumnFilterDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ColumnFilterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ColumnFilterDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnFilterCode});
+            this.ColumnFilterDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ColumnFilterDataGridView.Location = new System.Drawing.Point(3, 27);
+            this.ColumnFilterDataGridView.Name = "ColumnFilterDataGridView";
+            this.ColumnFilterDataGridView.RowHeadersWidth = 72;
+            this.ColumnFilterDataGridView.RowTemplate.Height = 33;
+            this.ColumnFilterDataGridView.Size = new System.Drawing.Size(1223, 412);
+            this.ColumnFilterDataGridView.TabIndex = 0;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Column Name";
+            this.ColumnName.MinimumWidth = 9;
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.Width = 175;
+            // 
+            // ColumnFilterCode
+            // 
+            this.ColumnFilterCode.HeaderText = "Filter Code";
+            this.ColumnFilterCode.Items.AddRange(new object[] {
+            "ORIGINAL",
+            "REMOVE_NUMBERS"});
+            this.ColumnFilterCode.MinimumWidth = 9;
+            this.ColumnFilterCode.Name = "ColumnFilterCode";
+            this.ColumnFilterCode.Width = 175;
             // 
             // tabPage4
             // 
@@ -708,8 +724,6 @@
             this.tabPage2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ColumnFilterDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPSIgnoreTailRowsNumber)).EndInit();
@@ -725,6 +739,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultDataGridView)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ColumnFilterDataGridView)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CategoryFilterDataGridView)).EndInit();
@@ -770,12 +787,7 @@
         private System.Windows.Forms.TextBox QuerySqlTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView ColumnFilterDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnFilterCode;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox PreprocessPluginCodeTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ExportSqlBtn;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -787,6 +799,12 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button SaveCategoryDictionaryFileBtn;
         private System.Windows.Forms.Button ResetCategoryDictionaryGridBtn;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView ColumnFilterDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnFilterCode;
+        private System.Windows.Forms.ComboBox PreprocessPluginCodeCombo;
     }
 }
 

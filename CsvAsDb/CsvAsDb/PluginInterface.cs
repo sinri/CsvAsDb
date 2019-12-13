@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CsvAsDb
 {
-    abstract class PluginInterface
+    class PluginInterface
     {
         protected readonly Form1 TheHostForm;
 
@@ -17,12 +17,12 @@ namespace CsvAsDb
 
         virtual public string GetSqlTemplate(string CurrentTableName)
         {
-            TheHostForm.WriteLog("PluginInterface.GetSqlTemplate running", "DEBUG");
+            //TheHostForm.WriteLog("PluginInterface.GetSqlTemplate running", "DEBUG");
             return "select * \r\nfrom " + CurrentTableName + " \r\nlimit 5";
         }
         virtual public void PreprocessRawRow(Dictionary<string, string> dataRow, Dictionary<string, string> headerFieldNameMap)
         {
-            TheHostForm.WriteLog("PluginInterface.PreprocessRawRow running", "DEBUG");
+            //TheHostForm.WriteLog("PluginInterface.PreprocessRawRow running", "DEBUG");
             // do nothing
         }
 
@@ -41,7 +41,7 @@ namespace CsvAsDb
                 case "YLN_A":
                     return new PluginYlnA(form);
                 default:
-                    return null;
+                    return new PluginInterface(form);
             }
         }
     }

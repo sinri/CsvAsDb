@@ -1,0 +1,37 @@
+# About
+
+----
+
+## History
+
+[ Beta Version, 2019-12-13 ]
+
+Add the Leqee Finance CSV Worker main function here, which is inspired by Lina Yu the Great years before.
+
+[ Alpha Version, 2019-12-11 ]
+
+Turn your CSVs in one directory into database and query with any possible SQL.
+
+This toolkit is inspired by Shaoqiao Wang the Great in Dec 9th, 2019 AD.
+
+----
+
+## Declaration
+
+Copyright 2019 Sinri Edogawa
+
+If have any problems, contact <ljni@leqee.com>.
+
+----
+
+## Usage
+
+### Common Usage
+
+Parse CSV files in one directory with same header, turn the content to Sqlite Database and query them with SQL.
+
+### Plugins
+
+#### WSQ_A : Stat by three columns
+
+#### YLN_A : Stat by categories

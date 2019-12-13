@@ -66,15 +66,24 @@ namespace CsvAsDb
             ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
             ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
             ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
-            
+
             /*
             wsq_a_target_list = new List<string>();
             wsq_a_target_list.Add("交易付款");
             wsq_a_target_list.Add("交易退款");
             wsq_a_target_list.Add("在线支付");
             */
-        }
 
-        
+            // test on vmware
+            //SourceDirTextBox.Text = @"\\vmware-host\Shared Folders\下载\ahc-201911_2088131570315721\xxx";
+
+            richTextBox1.Text = Properties.Resources.AboutContentFile;
+
+            this.Text = "CSV as Database Toolkit [" + Properties.Resources.ProjectVersion + "] - Leqee - Sinri Edogawa";
+
+            PreprocessPluginCodeCombo.SelectedItem = "FREE";
+
+
+        }
     }
 }
