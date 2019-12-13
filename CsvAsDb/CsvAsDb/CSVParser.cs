@@ -29,7 +29,8 @@ namespace CsvAsDb
 
         protected List<Dictionary<String, String>> cacheForBottomIgnoration;
 
-        public CSVParser(int columnLimit, bool hasHeader, int topIgnoreRows,int bottomIgnoreRows,bool ignoreIllegalQutes, Dictionary<string, string> fieldFilterConfig)
+        protected List<string> ExtraColumnNames;
+        public CSVParser(int columnLimit, bool hasHeader, int topIgnoreRows,int bottomIgnoreRows,bool ignoreIllegalQutes, Dictionary<string, string> fieldFilterConfig, List<string> ExtraColumnNames)
         {
             this.CsvColumnLimit = columnLimit;
             this.TopIgnoreRows = topIgnoreRows;
@@ -37,6 +38,7 @@ namespace CsvAsDb
             this.IgnoreQuotes = ignoreIllegalQutes;
             this.HasHeader = hasHeader;
             this.FieldFilterConfig = fieldFilterConfig;
+            this.ExtraColumnNames = ExtraColumnNames;
 
             HeaderFieldNameDictionary = null;
 
@@ -65,11 +67,20 @@ namespace CsvAsDb
                     }
                     HeaderFieldNameDictionary.Add(csvHeaders[i], autoFieldNames[i]);
                 }
+                if (ExtraColumnNames != null)
+                {
+                    for(int i = 0; i < ExtraColumnNames.Count; i++)
+                    {
+                        var tempName = ExtraColumnNames[i];//"Field_" + autoFieldNames.Count;
+                        autoFieldNames.Add(tempName);
+                        HeaderFieldNameDictionary.Add(ExtraColumnNames[i], tempName);
+                    }
+                }
             }
             return HeaderFieldNameDictionary;
         }
 
-        public String[] ReadFilesInDir(String dirPath,String limitExt)
+        public static String[] ReadFilesInDir(String dirPath,String limitExt)
         {
             String[] files = Directory.GetFiles(dirPath);
             List<String> array = new List<String>();
@@ -83,13 +94,22 @@ namespace CsvAsDb
             return array.ToArray();
         }
 
-        public void OpenFileAndLoadFields(String file)
+        public Dictionary<string, string> OpenFileAndLoadFields(String file)
         {
             csvReader = new CsvReader(new StreamReader(file, Encoding.Default));
             if (IgnoreQuotes)
             {
                 csvReader.Configuration.IgnoreQuotes = true;
             }
+            
+            //csvReader.Configuration.MissingFieldFound = null;
+            /*
+             // or u may need logs
+            (headerNames, index, context) =>
+            {
+                //logger.WriteLine($"Field with names ['{string.Join("', '", headerNames)}'] at index '{index}' was not found. );
+            };
+            */
 
             cacheForBottomIgnoration = new List<Dictionary<string, string>>();
 
@@ -121,7 +141,7 @@ namespace CsvAsDb
                     {
                         String s;
                         if (!csvReader.TryGetField<String>(x, out s)) break;
-                        if (s.Equals("")) break;
+                        if (s==null || s.Equals("")) break;
                         csvHeaders.Add(s);
                         x++;
                     }
@@ -146,6 +166,8 @@ namespace CsvAsDb
                 String s = "Field_" + i;
                 autoFieldNames.Add(s);
             }
+
+            return GetHeaderFieldNameDictionary();
         }
 
         protected Dictionary<String,String> ReadOneRow()

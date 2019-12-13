@@ -11,7 +11,7 @@ namespace CsvAsDb
     {
         private Dictionary<string, string> headerFieldNameMap;
         //private List<FieldFilterConfigEntity> fieldFilterConfigList;
-        private PluginWsqA plugin;
+        private PluginInterface plugin;
         private void SelectCsvDirBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = folderBrowserDialog1.ShowDialog();
@@ -42,6 +42,9 @@ namespace CsvAsDb
 
             try
             {
+                plugin = PluginInterface.buildPluginByCode(PreprocessPluginCodeTextBox.Text, this);
+                WriteLog("Loaded Plugin: " + plugin);
+
                 Dictionary<string, string> fieldFilterConfigDict = new Dictionary<string, string>();
                 /*
                 foreach (var item in fieldFilterConfigList)
@@ -62,16 +65,7 @@ namespace CsvAsDb
                     WriteLog("FILTER ITEM: " + item.Key + " => " + item.Value, "DEBUG");
                 }
 
-                var parser = new CSVParser(
-                    Convert.ToInt32(CPSColumnsLimitationNumber.Value),
-                    CPSHasHeaderCheckerBox.Checked,
-                    Convert.ToInt32(CPSIgnoreHeaderRowsNumber.Value),
-                    Convert.ToInt32(CPSIgnoreTailRowsNumber.Value),
-                    CPSIgnoreQuotesCheckerBox.Checked,
-                    fieldFilterConfigDict
-                );
-
-                string[] files = parser.ReadFilesInDir(SourceDirTextBox.Text, ".csv");
+                string[] files = CSVParser.ReadFilesInDir(SourceDirTextBox.Text, ".csv");
 
                 if (files.Length <= 0)
                 {
@@ -79,18 +73,22 @@ namespace CsvAsDb
                     return;
                 }
 
+                var parser = new CSVParser(
+                    Convert.ToInt32(CPSColumnsLimitationNumber.Value),
+                    CPSHasHeaderCheckerBox.Checked,
+                    Convert.ToInt32(CPSIgnoreHeaderRowsNumber.Value),
+                    Convert.ToInt32(CPSIgnoreTailRowsNumber.Value),
+                    CPSIgnoreQuotesCheckerBox.Checked,
+                    fieldFilterConfigDict,
+                    plugin.ExtraFields()
+                );
+
                 CurrentTableName = "excel";// "table_" + (new Random()).Next();
                 TheSqliteAgent = new SqliteAgent(CurrentTableName);
 
                 Regex regexForRemoveNumbers = new Regex("[0-9]+");
-                string[] pluginCodesArray = PreprocessPluginCodeTextBox.Text.Trim().Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-
-                List<string> pluginCodes = new List<string>(pluginCodesArray);
-                plugin = null;
-                if (pluginCodes.Contains("WSQ_A"))
-                {
-                    plugin = new PluginWsqA();
-                }
+                
+                
 
                 bool isFirstFile = true;
                 for (int i = 0; i < files.Length; i++)
@@ -141,7 +139,12 @@ namespace CsvAsDb
                             String process_value = String.Copy(entry.Value);
                             if (fieldFilterConfigDict.Count > 0)
                             {
-                                switch (fieldFilterConfigDict[entry.Key])
+                                string filterCode = "ORIGINAL";
+                                if (fieldFilterConfigDict.ContainsKey(entry.Key))
+                                {
+                                    filterCode = fieldFilterConfigDict[entry.Key];
+                                }
+                                switch (filterCode)
                                 {
                                     case "REMOVE_NUMBERS":
                                         process_value = regexForRemoveNumbers.Replace(process_value, "");

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CsvAsDb
 {
-    class PluginWsqA
+    class PluginWsqA : PluginInterface
     {
         List<string> wsq_a_target_list { get; set; }
 
-        public PluginWsqA()
+        public PluginWsqA(Form1 form) : base(form)
         {
             wsq_a_target_list = new List<string>();
             wsq_a_target_list.Add("交易付款");
@@ -18,7 +18,7 @@ namespace CsvAsDb
             wsq_a_target_list.Add("在线支付");
         }
 
-        public string GetSqlTemplate(string CurrentTableName)
+        override public string GetSqlTemplate(string CurrentTableName)
         {
             /*
             return  @"select 
@@ -52,7 +52,7 @@ sum(Field_6) + sum(Field_7) as 合计
 from  " + CurrentTableName;
         }
 
-        public void PreprocessRawRow(Dictionary<string,string> dataRow, Dictionary<string, string> headerFieldNameMap)
+        override public void PreprocessRawRow(Dictionary<string,string> dataRow, Dictionary<string, string> headerFieldNameMap)
         {
             if (wsq_a_target_list.Contains(dataRow[headerFieldNameMap["业务类型"]]))
             {

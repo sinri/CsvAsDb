@@ -65,6 +65,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.CategoryFilterDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ResetCategoryDictionaryGridBtn = new System.Windows.Forms.Button();
             this.SaveCategoryDictionaryFileBtn = new System.Windows.Forms.Button();
             this.LoadCategoryDictionaryFileBtn = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -77,7 +78,6 @@
             this.bwForLoadCsvToDb = new System.ComponentModel.BackgroundWorker();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ResetCategoryDictionaryGridBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -192,7 +192,7 @@
             this.PreprocessPluginCodeTextBox.Name = "PreprocessPluginCodeTextBox";
             this.PreprocessPluginCodeTextBox.Size = new System.Drawing.Size(1196, 31);
             this.PreprocessPluginCodeTextBox.TabIndex = 0;
-            this.PreprocessPluginCodeTextBox.Text = "WSQ_A";
+            this.PreprocessPluginCodeTextBox.Text = "YLN_A";
             // 
             // groupBox2
             // 
@@ -573,6 +573,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Persistence";
             // 
+            // ResetCategoryDictionaryGridBtn
+            // 
+            this.ResetCategoryDictionaryGridBtn.Location = new System.Drawing.Point(16, 118);
+            this.ResetCategoryDictionaryGridBtn.Name = "ResetCategoryDictionaryGridBtn";
+            this.ResetCategoryDictionaryGridBtn.Size = new System.Drawing.Size(493, 37);
+            this.ResetCategoryDictionaryGridBtn.TabIndex = 2;
+            this.ResetCategoryDictionaryGridBtn.Text = "Reset Category Dictionary Grid";
+            this.ResetCategoryDictionaryGridBtn.UseVisualStyleBackColor = true;
+            this.ResetCategoryDictionaryGridBtn.Click += new System.EventHandler(this.ResetCategoryDictionaryGridBtn_Click);
+            // 
             // SaveCategoryDictionaryFileBtn
             // 
             this.SaveCategoryDictionaryFileBtn.Location = new System.Drawing.Point(16, 74);
@@ -675,16 +685,6 @@
             // 
             this.openFileDialog1.DefaultExt = "CSV Files|*.csv";
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // ResetCategoryDictionaryGridBtn
-            // 
-            this.ResetCategoryDictionaryGridBtn.Location = new System.Drawing.Point(16, 118);
-            this.ResetCategoryDictionaryGridBtn.Name = "ResetCategoryDictionaryGridBtn";
-            this.ResetCategoryDictionaryGridBtn.Size = new System.Drawing.Size(493, 37);
-            this.ResetCategoryDictionaryGridBtn.TabIndex = 2;
-            this.ResetCategoryDictionaryGridBtn.Text = "Reset Category Dictionary Grid";
-            this.ResetCategoryDictionaryGridBtn.UseVisualStyleBackColor = true;
-            this.ResetCategoryDictionaryGridBtn.Click += new System.EventHandler(this.ResetCategoryDictionaryGridBtn_Click);
             // 
             // Form1
             // 
