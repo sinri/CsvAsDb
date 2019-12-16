@@ -190,6 +190,7 @@
             this.PreprocessPluginCodeCombo.Name = "PreprocessPluginCodeCombo";
             this.PreprocessPluginCodeCombo.Size = new System.Drawing.Size(641, 29);
             this.PreprocessPluginCodeCombo.TabIndex = 2;
+            this.PreprocessPluginCodeCombo.SelectedIndexChanged += new System.EventHandler(this.PreprocessPluginCodeCombo_SelectedIndexChanged);
             // 
             // label5
             // 

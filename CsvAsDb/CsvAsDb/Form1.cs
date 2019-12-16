@@ -61,11 +61,7 @@ namespace CsvAsDb
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            ColumnFilterDataGridView.Rows.Add(new object[]{ "业务类型","ORIGINAL"});
-            ColumnFilterDataGridView.Rows.Add(new object[] { "备注", "REMOVE_NUMBERS" });
-            ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
-            ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
-            ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
+            
 
             /*
             wsq_a_target_list = new List<string>();
@@ -84,6 +80,39 @@ namespace CsvAsDb
             PreprocessPluginCodeCombo.SelectedItem = "FREE";
 
 
+        }
+
+        private void PreprocessPluginCodeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ColumnFilterDataGridView.Rows.Clear();
+            //ColumnFilterDataGridView.Columns.Clear();
+            //ColumnFilterDataGridView.DataSource = null;
+
+
+            switch (PreprocessPluginCodeCombo.Text)
+            {   
+                case "WSQ_A":
+                    {
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "业务类型", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "备注", "REMOVE_NUMBERS" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
+                    }
+                    break;
+                case "YLN_A":
+                    {
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "业务类型", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "备注", "REMOVE_NUMBERS" });
+                        //ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
+                    }
+                    break;
+                case "FREE":
+                default:
+                    break;
+            }
         }
     }
 }
