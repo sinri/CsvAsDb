@@ -33,6 +33,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.PluginDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.PreprocessPluginCodeCombo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.LoadCSVBtn = new System.Windows.Forms.Button();
@@ -53,8 +54,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.UsableTableInfoTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.QuerySqlBtn = new System.Windows.Forms.Button();
             this.QuerySqlTextBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.QuerySqlBtn = new System.Windows.Forms.Button();
             this.ExportSqlBtn = new System.Windows.Forms.Button();
             this.queryResultDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -97,6 +99,7 @@
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultDataGridView)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -167,14 +170,28 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.PluginDescriptionTextBox);
             this.groupBox3.Controls.Add(this.PreprocessPluginCodeCombo);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(20, 344);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1230, 84);
+            this.groupBox3.Size = new System.Drawing.Size(1230, 282);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Preprocess Plugin Settings";
+            // 
+            // PluginDescriptionTextBox
+            // 
+            this.PluginDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PluginDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PluginDescriptionTextBox.Location = new System.Drawing.Point(23, 87);
+            this.PluginDescriptionTextBox.Multiline = true;
+            this.PluginDescriptionTextBox.Name = "PluginDescriptionTextBox";
+            this.PluginDescriptionTextBox.ReadOnly = true;
+            this.PluginDescriptionTextBox.Size = new System.Drawing.Size(1181, 169);
+            this.PluginDescriptionTextBox.TabIndex = 3;
             // 
             // PreprocessPluginCodeCombo
             // 
@@ -188,7 +205,7 @@
             "YLN_A"});
             this.PreprocessPluginCodeCombo.Location = new System.Drawing.Point(583, 33);
             this.PreprocessPluginCodeCombo.Name = "PreprocessPluginCodeCombo";
-            this.PreprocessPluginCodeCombo.Size = new System.Drawing.Size(641, 29);
+            this.PreprocessPluginCodeCombo.Size = new System.Drawing.Size(621, 29);
             this.PreprocessPluginCodeCombo.TabIndex = 2;
             this.PreprocessPluginCodeCombo.SelectedIndexChanged += new System.EventHandler(this.PreprocessPluginCodeCombo_SelectedIndexChanged);
             // 
@@ -204,7 +221,7 @@
             // LoadCSVBtn
             // 
             this.LoadCSVBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadCSVBtn.Location = new System.Drawing.Point(801, 436);
+            this.LoadCSVBtn.Location = new System.Drawing.Point(801, 634);
             this.LoadCSVBtn.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.LoadCSVBtn.Name = "LoadCSVBtn";
             this.LoadCSVBtn.Size = new System.Drawing.Size(449, 40);
@@ -423,29 +440,18 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.QuerySqlBtn, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.QuerySqlTextBox, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ExportSqlBtn, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(379, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.77923F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11088F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.10989F));
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(873, 393);
             this.tableLayoutPanel2.TabIndex = 3;
-            // 
-            // QuerySqlBtn
-            // 
-            this.QuerySqlBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.QuerySqlBtn.Location = new System.Drawing.Point(3, 308);
-            this.QuerySqlBtn.Name = "QuerySqlBtn";
-            this.QuerySqlBtn.Size = new System.Drawing.Size(867, 37);
-            this.QuerySqlBtn.TabIndex = 1;
-            this.QuerySqlBtn.Text = "Query For Quick View";
-            this.QuerySqlBtn.UseVisualStyleBackColor = true;
-            this.QuerySqlBtn.Click += new System.EventHandler(this.QuerySqlBtn_Click);
             // 
             // QuerySqlTextBox
             // 
@@ -454,15 +460,34 @@
             this.QuerySqlTextBox.Multiline = true;
             this.QuerySqlTextBox.Name = "QuerySqlTextBox";
             this.QuerySqlTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.QuerySqlTextBox.Size = new System.Drawing.Size(867, 299);
+            this.QuerySqlTextBox.Size = new System.Drawing.Size(867, 308);
             this.QuerySqlTextBox.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.QuerySqlBtn);
+            this.flowLayoutPanel1.Controls.Add(this.ExportSqlBtn);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 317);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(867, 73);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // QuerySqlBtn
+            // 
+            this.QuerySqlBtn.Location = new System.Drawing.Point(3, 3);
+            this.QuerySqlBtn.Name = "QuerySqlBtn";
+            this.QuerySqlBtn.Size = new System.Drawing.Size(337, 37);
+            this.QuerySqlBtn.TabIndex = 1;
+            this.QuerySqlBtn.Text = "Query For Quick View";
+            this.QuerySqlBtn.UseVisualStyleBackColor = true;
+            this.QuerySqlBtn.Click += new System.EventHandler(this.QuerySqlBtn_Click);
             // 
             // ExportSqlBtn
             // 
-            this.ExportSqlBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ExportSqlBtn.Location = new System.Drawing.Point(3, 356);
+            this.ExportSqlBtn.Location = new System.Drawing.Point(346, 3);
             this.ExportSqlBtn.Name = "ExportSqlBtn";
-            this.ExportSqlBtn.Size = new System.Drawing.Size(867, 34);
+            this.ExportSqlBtn.Size = new System.Drawing.Size(323, 34);
             this.ExportSqlBtn.TabIndex = 2;
             this.ExportSqlBtn.Text = "Query and Export to CSV...";
             this.ExportSqlBtn.UseVisualStyleBackColor = true;
@@ -739,6 +764,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.queryResultDataGridView)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -806,6 +832,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColumnFilterCode;
         private System.Windows.Forms.ComboBox PreprocessPluginCodeCombo;
+        private System.Windows.Forms.TextBox PluginDescriptionTextBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

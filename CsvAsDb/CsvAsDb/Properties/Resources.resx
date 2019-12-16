@@ -121,6 +121,12 @@
   <data name="AboutContentFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AboutContentFile.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
   </data>
+  <data name="PluginDescWsqA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PluginDescWsqA.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  </data>
+  <data name="PluginDescYlnA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PluginDescYlnA.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  </data>
   <data name="ProjectVersion" xml:space="preserve">
     <value>Beta</value>
   </data>

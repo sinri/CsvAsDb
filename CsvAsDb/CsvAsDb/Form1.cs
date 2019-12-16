@@ -98,6 +98,8 @@ namespace CsvAsDb
                         ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
                         ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
                         ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
+
+                        PluginDescriptionTextBox.Text = Properties.Resources.PluginDescWsqA;
                     }
                     break;
                 case "YLN_A":
@@ -107,10 +109,13 @@ namespace CsvAsDb
                         //ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
                         ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
                         ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
+
+                        PluginDescriptionTextBox.Text = Properties.Resources.PluginDescYlnA;
                     }
                     break;
-                case "FREE":
+                case "FREE":                    
                 default:
+                    PluginDescriptionTextBox.Text = "No plugin used. All configurations should be set manually.";
                     break;
             }
         }

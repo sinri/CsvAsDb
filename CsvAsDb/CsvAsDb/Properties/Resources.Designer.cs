@@ -61,11 +61,58 @@ namespace CsvAsDb.Properties {
         }
         
         /// <summary>
-        ///   查找类似 We are the way! 的本地化字符串。
+        ///   查找类似 # About
+        ///
+        ///----
+        ///
+        ///## History
+        ///
+        ///[ Beta Version, 2019-12-13 ]
+        ///
+        ///Add the Leqee Finance CSV Worker main function here, which is inspired by Lina Yu the Great years before.
+        ///
+        ///[ Alpha Version, 2019-12-11 ]
+        ///
+        ///Turn your CSVs in one directory into database and query with any possible SQL.
+        ///
+        ///This toolkit is inspired by Shaoqiao Wang the Great in Dec 9th, 2019 AD.
+        ///
+        ///----
+        ///
+        ///## Declaration
+        ///
+        ///Copyright 2019 Sinri Edogawa
+        ///
+        ///If have any problems, contact &lt;ljni@leqee.com&gt;.
+        ///
+        ///----
+        ///
+        ///## Usage
+        ///
+        ///### Common Usage
+        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string AboutContentFile {
             get {
                 return ResourceManager.GetString("AboutContentFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Plugin WSQ_A 的本地化字符串。
+        /// </summary>
+        internal static string PluginDescWsqA {
+            get {
+                return ResourceManager.GetString("PluginDescWsqA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Plugin YLN_A 的本地化字符串。
+        /// </summary>
+        internal static string PluginDescYlnA {
+            get {
+                return ResourceManager.GetString("PluginDescYlnA", resourceCulture);
             }
         }
         

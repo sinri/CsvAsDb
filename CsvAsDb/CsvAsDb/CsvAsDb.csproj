@@ -124,6 +124,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bitbug_favicon_48.ico" />
+    <None Include="Resources\PluginDescYlnA.txt" />
+    <None Include="Resources\PluginDescWsqA.txt" />
     <None Include="Resources\AboutContentFile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
