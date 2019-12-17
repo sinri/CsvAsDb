@@ -1,8 +1,12 @@
-# About
+# 支持信息
 
 ----
 
-## History
+## 更新历史
+
+[ 1.0, 2019-12-17 ]
+
+在通用功能的基础上，通过插件实现王少巧、喻莉娜、张烨的需求。
 
 [ Beta Version, 2019-12-13 ]
 
@@ -16,22 +20,62 @@ This toolkit is inspired by Shaoqiao Wang the Great in Dec 9th, 2019 AD.
 
 ----
 
-## Declaration
+## 声明
+
+该程序使用了第三方库 System.Data.SQLite 以及 CsvHelper。该程序基于 .NET Framework 4.7 构建。
 
 Copyright 2019 Sinri Edogawa
 
-If have any problems, contact <ljni@leqee.com>.
+维护者联系方式 <ljni@leqee.com>
 
 ----
 
-## Usage
-
-### Common Usage
+## 使用方法指导
 
 Parse CSV files in one directory with same header, turn the content to Sqlite Database and query them with SQL.
 
-### Plugins
+此触手将指定文件夹下的所有CSV文件导入内存数据库进行分析和根据指定SQL查询结果，以及导出结果到CSV。
 
-#### WSQ_A : Stat by three columns
+首先，使用者需要完成以下配置检查：
 
-#### YLN_A : Stat by categories
+1、指定CSV文件所在目录，并确保所有CSV文件格式一致。例如，常规的支付宝对账包中的汇总文件需要剔除。
+2、确认CSV文件格式，是否有前置后置注释行，是否有标题行（标题行不算在注释行数量内），以及最大的可用列数。
+3、如果是存在不规范引号的CSV，如跨境业务的支付宝对账包，需要选择无视非法引号的选项。
+4、默认不筛选列，一律原样保留。如果只需要一部分列或者需要对某些列进行预处理，需要在列过滤器标签页中设置。
+5、所选用的插件要求执行的工作。
+
+设置完成之后，点击导入。待成功后，就可以到查询器页面，根据字段提示欢快地自由查询了。
+当然，某些SQL因为计算量大、结果集大的原因会卡，这个就只能自生自灭了。
+
+### 自由模式 【FREE】
+
+此模式下一般原样导入CSV，并可自由筛选。
+
+例【FREE-1】王神需要筛选出所有“业务类型”为“提现”的明细。
+操作步骤：按照自由模式默认原样导入，然后在查询器查找“业务类型”对应的字段名，如“Field_10”,那么王神只要在查询器中输入如下SQL：
+
+select * from excel where Field_10 = '提现'
+
+然后导出即可。
+
+例【FREE-2】王神需要筛选出所有“对方账号”包含“天猫”的明细。
+操作步骤：按照自由模式默认原样导入，然后在查询器查找“对方账号”对应的字段名，如“Field_5”,那么王神只要在查询器中输入如下SQL：
+
+select * from excel where Field_5 like '%天猫%'
+
+然后导出即可。要注意的是，为了模糊搜索，搜索关键词两边的引号不能省略。
+
+
+### 王神A套餐 【WSQ_A】
+
+根据三个字段，业务类型、备注、对方账号，进行组合统计并作合计。选好文件夹和插件，导入，以默认SQL查询，如此傻瓜操作即可。
+
+### 喻神A套餐 【YLN_A】 
+
+根据业务类型和备注，按照预设分类字典进行分类，并按照分类进行统计。
+这个插件要求提前导入或编辑好分类字典，然后再导入，并按默认SQL查询即可。
+
+### 张神A套餐 【ZY_A】 
+
+根据备注，按照预设分类字典进行分类，并按照分类和业务类型进行统计。按照指示，大小写不敏感。
+这个插件要求提前导入或编辑好分类字典，然后再导入，并按默认SQL查询即可。

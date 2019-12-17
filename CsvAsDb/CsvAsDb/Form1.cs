@@ -105,12 +105,23 @@ namespace CsvAsDb
                 case "YLN_A":
                     {
                         ColumnFilterDataGridView.Rows.Add(new object[] { "业务类型", "ORIGINAL" });
-                        ColumnFilterDataGridView.Rows.Add(new object[] { "备注", "REMOVE_NUMBERS" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "备注", "ORIGINAL" });
                         //ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
                         ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
                         ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
 
                         PluginDescriptionTextBox.Text = Properties.Resources.PluginDescYlnA;
+                    }
+                    break;
+                case "ZY_A":
+                    {
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "业务类型", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "备注", "ORIGINAL" });
+                        //ColumnFilterDataGridView.Rows.Add(new object[] { "对方账号", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "收入金额（+元）", "ORIGINAL" });
+                        ColumnFilterDataGridView.Rows.Add(new object[] { "支出金额（-元）", "ORIGINAL" });
+
+                        PluginDescriptionTextBox.Text = Properties.Resources.PluginDescZyA;
                     }
                     break;
                 case "FREE":                    
@@ -119,5 +130,6 @@ namespace CsvAsDb
                     break;
             }
         }
+
     }
 }

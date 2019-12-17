@@ -40,6 +40,8 @@ namespace CsvAsDb
                     return new PluginWsqA(form);
                 case "YLN_A":
                     return new PluginYlnA(form);
+                case "ZY_A":
+                    return new PluginZyA(form);
                 default:
                     return new PluginInterface(form);
             }

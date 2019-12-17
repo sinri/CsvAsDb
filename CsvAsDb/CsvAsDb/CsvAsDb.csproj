@@ -86,6 +86,7 @@
     <Compile Include="PluginInterface.cs" />
     <Compile Include="PluginWsqA.cs" />
     <Compile Include="PluginYlnA.cs" />
+    <Compile Include="PluginZyA.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqliteAgent.cs" />
@@ -124,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bitbug_favicon_48.ico" />
+    <None Include="Resources\PluginDescZyA.txt" />
     <None Include="Resources\PluginDescYlnA.txt" />
     <None Include="Resources\PluginDescWsqA.txt" />
     <None Include="Resources\AboutContentFile.txt" />

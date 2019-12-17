@@ -36,9 +36,9 @@
             this.PluginDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.PreprocessPluginCodeCombo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.LoadCSVBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CPSIgnoreQuotesCheckerBox = new System.Windows.Forms.CheckBox();
+            this.LoadCSVBtn = new System.Windows.Forms.Button();
             this.CPSIgnoreTailRowsNumber = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.CPSIgnoreHeaderRowsNumber = new System.Windows.Forms.NumericUpDown();
@@ -116,7 +116,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -127,8 +127,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.logTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(1991, 1356);
-            this.splitContainer1.SplitterDistance = 1299;
+            this.splitContainer1.Size = new System.Drawing.Size(1201, 790);
+            this.splitContainer1.SplitterDistance = 783;
+            this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
             // tabControl1
@@ -142,11 +143,11 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.HotTrack = true;
-            this.tabControl1.Location = new System.Drawing.Point(13, 12);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(7, 7);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1275, 1332);
+            this.tabControl1.Size = new System.Drawing.Size(769, 776);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage2
@@ -157,13 +158,13 @@
             this.tabPage2.Controls.Add(this.SelectCsvDirBtn);
             this.tabPage2.Controls.Add(this.SourceDirTextBox);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(761, 750);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Load CSV Directory";
+            this.tabPage2.Text = "CSV加载器";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -173,12 +174,14 @@
             this.groupBox3.Controls.Add(this.PluginDescriptionTextBox);
             this.groupBox3.Controls.Add(this.PreprocessPluginCodeCombo);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(20, 344);
+            this.groupBox3.Location = new System.Drawing.Point(11, 197);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1230, 282);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(745, 161);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Preprocess Plugin Settings";
+            this.groupBox3.Text = "插件设定";
             // 
             // PluginDescriptionTextBox
             // 
@@ -186,11 +189,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PluginDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PluginDescriptionTextBox.Location = new System.Drawing.Point(23, 87);
+            this.PluginDescriptionTextBox.Location = new System.Drawing.Point(13, 50);
+            this.PluginDescriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PluginDescriptionTextBox.Multiline = true;
             this.PluginDescriptionTextBox.Name = "PluginDescriptionTextBox";
             this.PluginDescriptionTextBox.ReadOnly = true;
-            this.PluginDescriptionTextBox.Size = new System.Drawing.Size(1181, 169);
+            this.PluginDescriptionTextBox.Size = new System.Drawing.Size(719, 97);
             this.PluginDescriptionTextBox.TabIndex = 3;
             // 
             // PreprocessPluginCodeCombo
@@ -202,33 +206,24 @@
             this.PreprocessPluginCodeCombo.Items.AddRange(new object[] {
             "FREE",
             "WSQ_A",
-            "YLN_A"});
-            this.PreprocessPluginCodeCombo.Location = new System.Drawing.Point(583, 33);
+            "YLN_A",
+            "ZY_A"});
+            this.PreprocessPluginCodeCombo.Location = new System.Drawing.Point(494, 19);
+            this.PreprocessPluginCodeCombo.Margin = new System.Windows.Forms.Padding(2);
             this.PreprocessPluginCodeCombo.Name = "PreprocessPluginCodeCombo";
-            this.PreprocessPluginCodeCombo.Size = new System.Drawing.Size(621, 29);
+            this.PreprocessPluginCodeCombo.Size = new System.Drawing.Size(239, 20);
             this.PreprocessPluginCodeCombo.TabIndex = 2;
             this.PreprocessPluginCodeCombo.SelectedIndexChanged += new System.EventHandler(this.PreprocessPluginCodeCombo_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 36);
+            this.label5.Location = new System.Drawing.Point(14, 22);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(560, 21);
+            this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Input your plugin code. Now available: WSQ_A YLN_A";
-            // 
-            // LoadCSVBtn
-            // 
-            this.LoadCSVBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadCSVBtn.Location = new System.Drawing.Point(801, 634);
-            this.LoadCSVBtn.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.LoadCSVBtn.Name = "LoadCSVBtn";
-            this.LoadCSVBtn.Size = new System.Drawing.Size(449, 40);
-            this.LoadCSVBtn.TabIndex = 4;
-            this.LoadCSVBtn.Text = "Load CSV and Build Database";
-            this.LoadCSVBtn.UseVisualStyleBackColor = true;
-            this.LoadCSVBtn.Click += new System.EventHandler(this.LoadCSVBtn_Click);
+            this.label5.Text = "选择插件";
             // 
             // groupBox1
             // 
@@ -242,32 +237,39 @@
             this.groupBox1.Controls.Add(this.CPSColumnsLimitationNumber);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.CPSHasHeaderCheckerBox);
-            this.groupBox1.Location = new System.Drawing.Point(20, 91);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.groupBox1.Location = new System.Drawing.Point(11, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1230, 245);
+            this.groupBox1.Size = new System.Drawing.Size(745, 140);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CSV Parse Settings";
+            this.groupBox1.Text = "CSV 解析设定";
             // 
             // CPSIgnoreQuotesCheckerBox
             // 
             this.CPSIgnoreQuotesCheckerBox.AutoSize = true;
-            this.CPSIgnoreQuotesCheckerBox.Location = new System.Drawing.Point(13, 191);
-            this.CPSIgnoreQuotesCheckerBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.CPSIgnoreQuotesCheckerBox.Location = new System.Drawing.Point(7, 109);
             this.CPSIgnoreQuotesCheckerBox.Name = "CPSIgnoreQuotesCheckerBox";
-            this.CPSIgnoreQuotesCheckerBox.Size = new System.Drawing.Size(267, 25);
+            this.CPSIgnoreQuotesCheckerBox.Size = new System.Drawing.Size(120, 16);
             this.CPSIgnoreQuotesCheckerBox.TabIndex = 7;
-            this.CPSIgnoreQuotesCheckerBox.Text = "Ignore Illegal Quotes";
+            this.CPSIgnoreQuotesCheckerBox.Text = "强行兼容非法引号";
             this.CPSIgnoreQuotesCheckerBox.UseVisualStyleBackColor = true;
+            // 
+            // LoadCSVBtn
+            // 
+            this.LoadCSVBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadCSVBtn.Location = new System.Drawing.Point(511, 363);
+            this.LoadCSVBtn.Name = "LoadCSVBtn";
+            this.LoadCSVBtn.Size = new System.Drawing.Size(245, 23);
+            this.LoadCSVBtn.TabIndex = 4;
+            this.LoadCSVBtn.Text = "开始加载";
+            this.LoadCSVBtn.UseVisualStyleBackColor = true;
+            this.LoadCSVBtn.Click += new System.EventHandler(this.LoadCSVBtn_Click);
             // 
             // CPSIgnoreTailRowsNumber
             // 
-            this.CPSIgnoreTailRowsNumber.Location = new System.Drawing.Point(596, 80);
-            this.CPSIgnoreTailRowsNumber.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.CPSIgnoreTailRowsNumber.Location = new System.Drawing.Point(325, 46);
             this.CPSIgnoreTailRowsNumber.Name = "CPSIgnoreTailRowsNumber";
-            this.CPSIgnoreTailRowsNumber.Size = new System.Drawing.Size(108, 31);
+            this.CPSIgnoreTailRowsNumber.Size = new System.Drawing.Size(59, 21);
             this.CPSIgnoreTailRowsNumber.TabIndex = 6;
             this.CPSIgnoreTailRowsNumber.Value = new decimal(new int[] {
             4,
@@ -278,19 +280,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(389, 84);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(212, 48);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(197, 21);
+            this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Ignore Tail Rows:";
+            this.label4.Text = "过滤尾部行数";
             // 
             // CPSIgnoreHeaderRowsNumber
             // 
-            this.CPSIgnoreHeaderRowsNumber.Location = new System.Drawing.Point(240, 80);
-            this.CPSIgnoreHeaderRowsNumber.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.CPSIgnoreHeaderRowsNumber.Location = new System.Drawing.Point(131, 46);
             this.CPSIgnoreHeaderRowsNumber.Name = "CPSIgnoreHeaderRowsNumber";
-            this.CPSIgnoreHeaderRowsNumber.Size = new System.Drawing.Size(108, 31);
+            this.CPSIgnoreHeaderRowsNumber.Size = new System.Drawing.Size(59, 21);
             this.CPSIgnoreHeaderRowsNumber.TabIndex = 4;
             this.CPSIgnoreHeaderRowsNumber.Value = new decimal(new int[] {
             4,
@@ -301,19 +301,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 84);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(4, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(219, 21);
+            this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Ignore Header Rows:";
+            this.label3.Text = "过滤头部行数";
             // 
             // CPSColumnsLimitationNumber
             // 
-            this.CPSColumnsLimitationNumber.Location = new System.Drawing.Point(240, 138);
-            this.CPSColumnsLimitationNumber.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.CPSColumnsLimitationNumber.Location = new System.Drawing.Point(131, 79);
             this.CPSColumnsLimitationNumber.Name = "CPSColumnsLimitationNumber";
-            this.CPSColumnsLimitationNumber.Size = new System.Drawing.Size(108, 31);
+            this.CPSColumnsLimitationNumber.Size = new System.Drawing.Size(59, 21);
             this.CPSColumnsLimitationNumber.TabIndex = 2;
             this.CPSColumnsLimitationNumber.Value = new decimal(new int[] {
             16,
@@ -324,35 +322,33 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 142);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(4, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 21);
+            this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Columns Limitation:";
+            this.label2.Text = "最大检视列数";
             // 
             // CPSHasHeaderCheckerBox
             // 
             this.CPSHasHeaderCheckerBox.AutoSize = true;
             this.CPSHasHeaderCheckerBox.Checked = true;
             this.CPSHasHeaderCheckerBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CPSHasHeaderCheckerBox.Location = new System.Drawing.Point(11, 35);
-            this.CPSHasHeaderCheckerBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.CPSHasHeaderCheckerBox.Location = new System.Drawing.Point(6, 20);
             this.CPSHasHeaderCheckerBox.Name = "CPSHasHeaderCheckerBox";
-            this.CPSHasHeaderCheckerBox.Size = new System.Drawing.Size(223, 25);
+            this.CPSHasHeaderCheckerBox.Size = new System.Drawing.Size(84, 16);
             this.CPSHasHeaderCheckerBox.TabIndex = 0;
-            this.CPSHasHeaderCheckerBox.Text = "Header Row Exists";
+            this.CPSHasHeaderCheckerBox.Text = "存在标题行";
             this.CPSHasHeaderCheckerBox.UseVisualStyleBackColor = true;
             // 
             // SelectCsvDirBtn
             // 
             this.SelectCsvDirBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectCsvDirBtn.Location = new System.Drawing.Point(1084, 44);
-            this.SelectCsvDirBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.SelectCsvDirBtn.Location = new System.Drawing.Point(665, 25);
+            this.SelectCsvDirBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SelectCsvDirBtn.Name = "SelectCsvDirBtn";
-            this.SelectCsvDirBtn.Size = new System.Drawing.Size(166, 38);
+            this.SelectCsvDirBtn.Size = new System.Drawing.Size(91, 22);
             this.SelectCsvDirBtn.TabIndex = 2;
-            this.SelectCsvDirBtn.Text = "Select...";
+            this.SelectCsvDirBtn.Text = "选择文件夹...";
             this.SelectCsvDirBtn.UseVisualStyleBackColor = true;
             this.SelectCsvDirBtn.Click += new System.EventHandler(this.SelectCsvDirBtn_Click);
             // 
@@ -360,38 +356,38 @@
             // 
             this.SourceDirTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SourceDirTextBox.Location = new System.Drawing.Point(20, 46);
-            this.SourceDirTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SourceDirTextBox.Location = new System.Drawing.Point(11, 26);
+            this.SourceDirTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SourceDirTextBox.Name = "SourceDirTextBox";
-            this.SourceDirTextBox.Size = new System.Drawing.Size(1056, 31);
+            this.SourceDirTextBox.Size = new System.Drawing.Size(652, 21);
             this.SourceDirTextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(549, 21);
+            this.label1.Size = new System.Drawing.Size(107, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Select the directory where raw CSV files dwell...";
+            this.label1.Text = "给定CSV所在的目录";
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.splitContainer2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 31);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.tabPage3.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(761, 750);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Querier";
+            this.tabPage3.Text = "查询器";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(6, 5);
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -404,8 +400,9 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.queryResultDataGridView);
             this.splitContainer2.Panel2MinSize = 100;
-            this.splitContainer2.Size = new System.Drawing.Size(1255, 1287);
-            this.splitContainer2.SplitterDistance = 395;
+            this.splitContainer2.Size = new System.Drawing.Size(755, 744);
+            this.splitContainer2.SplitterDistance = 228;
+            this.splitContainer2.SplitterWidth = 2;
             this.splitContainer2.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -417,10 +414,11 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1255, 395);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(755, 228);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // UsableTableInfoTextBox
@@ -428,12 +426,13 @@
             this.UsableTableInfoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.UsableTableInfoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UsableTableInfoTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UsableTableInfoTextBox.Location = new System.Drawing.Point(3, 3);
+            this.UsableTableInfoTextBox.Location = new System.Drawing.Point(2, 2);
+            this.UsableTableInfoTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.UsableTableInfoTextBox.Multiline = true;
             this.UsableTableInfoTextBox.Name = "UsableTableInfoTextBox";
             this.UsableTableInfoTextBox.ReadOnly = true;
             this.UsableTableInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.UsableTableInfoTextBox.Size = new System.Drawing.Size(370, 393);
+            this.UsableTableInfoTextBox.Size = new System.Drawing.Size(222, 225);
             this.UsableTableInfoTextBox.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -443,24 +442,26 @@
             this.tableLayoutPanel2.Controls.Add(this.QuerySqlTextBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(379, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(228, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(873, 393);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(525, 225);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // QuerySqlTextBox
             // 
             this.QuerySqlTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.QuerySqlTextBox.Location = new System.Drawing.Point(3, 3);
+            this.QuerySqlTextBox.Location = new System.Drawing.Point(2, 2);
+            this.QuerySqlTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.QuerySqlTextBox.Multiline = true;
             this.QuerySqlTextBox.Name = "QuerySqlTextBox";
             this.QuerySqlTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.QuerySqlTextBox.Size = new System.Drawing.Size(867, 308);
+            this.QuerySqlTextBox.Size = new System.Drawing.Size(521, 176);
             this.QuerySqlTextBox.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -468,28 +469,31 @@
             this.flowLayoutPanel1.Controls.Add(this.QuerySqlBtn);
             this.flowLayoutPanel1.Controls.Add(this.ExportSqlBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 317);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 182);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(867, 73);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(521, 41);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // QuerySqlBtn
             // 
-            this.QuerySqlBtn.Location = new System.Drawing.Point(3, 3);
+            this.QuerySqlBtn.Location = new System.Drawing.Point(2, 2);
+            this.QuerySqlBtn.Margin = new System.Windows.Forms.Padding(2);
             this.QuerySqlBtn.Name = "QuerySqlBtn";
-            this.QuerySqlBtn.Size = new System.Drawing.Size(337, 37);
+            this.QuerySqlBtn.Size = new System.Drawing.Size(73, 21);
             this.QuerySqlBtn.TabIndex = 1;
-            this.QuerySqlBtn.Text = "Query For Quick View";
+            this.QuerySqlBtn.Text = "查询";
             this.QuerySqlBtn.UseVisualStyleBackColor = true;
             this.QuerySqlBtn.Click += new System.EventHandler(this.QuerySqlBtn_Click);
             // 
             // ExportSqlBtn
             // 
-            this.ExportSqlBtn.Location = new System.Drawing.Point(346, 3);
+            this.ExportSqlBtn.Location = new System.Drawing.Point(79, 2);
+            this.ExportSqlBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ExportSqlBtn.Name = "ExportSqlBtn";
-            this.ExportSqlBtn.Size = new System.Drawing.Size(323, 34);
+            this.ExportSqlBtn.Size = new System.Drawing.Size(73, 21);
             this.ExportSqlBtn.TabIndex = 2;
-            this.ExportSqlBtn.Text = "Query and Export to CSV...";
+            this.ExportSqlBtn.Text = "导出";
             this.ExportSqlBtn.UseVisualStyleBackColor = true;
             this.ExportSqlBtn.Click += new System.EventHandler(this.ExportSqlBtn_Click);
             // 
@@ -501,22 +505,24 @@
             this.queryResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.queryResultDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.queryResultDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.queryResultDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.queryResultDataGridView.Name = "queryResultDataGridView";
             this.queryResultDataGridView.ReadOnly = true;
             this.queryResultDataGridView.RowHeadersWidth = 72;
             this.queryResultDataGridView.RowTemplate.Height = 33;
-            this.queryResultDataGridView.Size = new System.Drawing.Size(1255, 888);
+            this.queryResultDataGridView.Size = new System.Drawing.Size(755, 514);
             this.queryResultDataGridView.TabIndex = 3;
             // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.groupBox2);
-            this.tabPage5.Location = new System.Drawing.Point(4, 31);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage5.Size = new System.Drawing.Size(761, 750);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Column Filters";
+            this.tabPage5.Text = "列过滤器";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -524,12 +530,14 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.ColumnFilterDataGridView);
-            this.groupBox2.Location = new System.Drawing.Point(18, 27);
+            this.groupBox2.Location = new System.Drawing.Point(10, 15);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1229, 442);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(744, 253);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Field Filter Config";
+            this.groupBox2.Text = "列过滤设定";
             // 
             // ColumnFilterDataGridView
             // 
@@ -539,11 +547,12 @@
             this.ColumnName,
             this.ColumnFilterCode});
             this.ColumnFilterDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ColumnFilterDataGridView.Location = new System.Drawing.Point(3, 27);
+            this.ColumnFilterDataGridView.Location = new System.Drawing.Point(2, 16);
+            this.ColumnFilterDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.ColumnFilterDataGridView.Name = "ColumnFilterDataGridView";
             this.ColumnFilterDataGridView.RowHeadersWidth = 72;
             this.ColumnFilterDataGridView.RowTemplate.Height = 33;
-            this.ColumnFilterDataGridView.Size = new System.Drawing.Size(1223, 412);
+            this.ColumnFilterDataGridView.Size = new System.Drawing.Size(740, 235);
             this.ColumnFilterDataGridView.TabIndex = 0;
             // 
             // ColumnName
@@ -567,12 +576,13 @@
             // 
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 31);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Size = new System.Drawing.Size(761, 750);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Category Dictionary";
+            this.tabPage4.Text = "分类编辑器";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // groupBox5
@@ -581,12 +591,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.CategoryFilterDataGridView);
-            this.groupBox5.Location = new System.Drawing.Point(6, 237);
+            this.groupBox5.Location = new System.Drawing.Point(3, 135);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1255, 1054);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox5.Size = new System.Drawing.Size(759, 622);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Dictionary";
+            this.groupBox5.Text = "分类字典";
             // 
             // CategoryFilterDataGridView
             // 
@@ -594,11 +606,12 @@
             this.CategoryFilterDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.CategoryFilterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CategoryFilterDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CategoryFilterDataGridView.Location = new System.Drawing.Point(3, 27);
+            this.CategoryFilterDataGridView.Location = new System.Drawing.Point(2, 16);
+            this.CategoryFilterDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.CategoryFilterDataGridView.Name = "CategoryFilterDataGridView";
             this.CategoryFilterDataGridView.RowHeadersWidth = 72;
             this.CategoryFilterDataGridView.RowTemplate.Height = 33;
-            this.CategoryFilterDataGridView.Size = new System.Drawing.Size(1249, 1024);
+            this.CategoryFilterDataGridView.Size = new System.Drawing.Size(755, 604);
             this.CategoryFilterDataGridView.TabIndex = 0;
             // 
             // groupBox4
@@ -608,40 +621,45 @@
             this.groupBox4.Controls.Add(this.ResetCategoryDictionaryGridBtn);
             this.groupBox4.Controls.Add(this.SaveCategoryDictionaryFileBtn);
             this.groupBox4.Controls.Add(this.LoadCategoryDictionaryFileBtn);
-            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1255, 225);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(759, 129);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Persistence";
+            this.groupBox4.Text = "分类字典的编辑与持久化";
             // 
             // ResetCategoryDictionaryGridBtn
             // 
-            this.ResetCategoryDictionaryGridBtn.Location = new System.Drawing.Point(16, 118);
+            this.ResetCategoryDictionaryGridBtn.Location = new System.Drawing.Point(9, 67);
+            this.ResetCategoryDictionaryGridBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ResetCategoryDictionaryGridBtn.Name = "ResetCategoryDictionaryGridBtn";
-            this.ResetCategoryDictionaryGridBtn.Size = new System.Drawing.Size(493, 37);
+            this.ResetCategoryDictionaryGridBtn.Size = new System.Drawing.Size(269, 21);
             this.ResetCategoryDictionaryGridBtn.TabIndex = 2;
-            this.ResetCategoryDictionaryGridBtn.Text = "Reset Category Dictionary Grid";
+            this.ResetCategoryDictionaryGridBtn.Text = "重置分类字典以供编辑";
             this.ResetCategoryDictionaryGridBtn.UseVisualStyleBackColor = true;
             this.ResetCategoryDictionaryGridBtn.Click += new System.EventHandler(this.ResetCategoryDictionaryGridBtn_Click);
             // 
             // SaveCategoryDictionaryFileBtn
             // 
-            this.SaveCategoryDictionaryFileBtn.Location = new System.Drawing.Point(16, 74);
+            this.SaveCategoryDictionaryFileBtn.Location = new System.Drawing.Point(9, 42);
+            this.SaveCategoryDictionaryFileBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SaveCategoryDictionaryFileBtn.Name = "SaveCategoryDictionaryFileBtn";
-            this.SaveCategoryDictionaryFileBtn.Size = new System.Drawing.Size(493, 37);
+            this.SaveCategoryDictionaryFileBtn.Size = new System.Drawing.Size(269, 21);
             this.SaveCategoryDictionaryFileBtn.TabIndex = 1;
-            this.SaveCategoryDictionaryFileBtn.Text = "Save Category Dictionary File (CSV) ...";
+            this.SaveCategoryDictionaryFileBtn.Text = "保存当前分类字典到CSV文件";
             this.SaveCategoryDictionaryFileBtn.UseVisualStyleBackColor = true;
             this.SaveCategoryDictionaryFileBtn.Click += new System.EventHandler(this.SaveCategoryDictionaryFileBtn_Click);
             // 
             // LoadCategoryDictionaryFileBtn
             // 
-            this.LoadCategoryDictionaryFileBtn.Location = new System.Drawing.Point(16, 30);
+            this.LoadCategoryDictionaryFileBtn.Location = new System.Drawing.Point(9, 17);
+            this.LoadCategoryDictionaryFileBtn.Margin = new System.Windows.Forms.Padding(2);
             this.LoadCategoryDictionaryFileBtn.Name = "LoadCategoryDictionaryFileBtn";
-            this.LoadCategoryDictionaryFileBtn.Size = new System.Drawing.Size(493, 37);
+            this.LoadCategoryDictionaryFileBtn.Size = new System.Drawing.Size(269, 21);
             this.LoadCategoryDictionaryFileBtn.TabIndex = 0;
-            this.LoadCategoryDictionaryFileBtn.Text = "Load Category Dictionary File (CSV) ...";
+            this.LoadCategoryDictionaryFileBtn.Text = "加载分类字典CSV文件";
             this.LoadCategoryDictionaryFileBtn.UseVisualStyleBackColor = true;
             this.LoadCategoryDictionaryFileBtn.Click += new System.EventHandler(this.LoadCategoryDictionaryFileBtn_Click);
             // 
@@ -649,31 +667,32 @@
             // 
             this.tabPage1.Controls.Add(this.richTextBox1);
             this.tabPage1.Controls.Add(this.labBtn1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 31);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1267, 1297);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(761, 750);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "About";
+            this.tabPage1.Text = "支持";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(4, 4);
+            this.richTextBox1.Location = new System.Drawing.Point(2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1259, 1289);
+            this.richTextBox1.Size = new System.Drawing.Size(757, 746);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // labBtn1
             // 
-            this.labBtn1.Location = new System.Drawing.Point(1112, 1245);
-            this.labBtn1.Margin = new System.Windows.Forms.Padding(4);
+            this.labBtn1.Location = new System.Drawing.Point(607, 711);
+            this.labBtn1.Margin = new System.Windows.Forms.Padding(2);
             this.labBtn1.Name = "labBtn1";
-            this.labBtn1.Size = new System.Drawing.Size(147, 44);
+            this.labBtn1.Size = new System.Drawing.Size(80, 25);
             this.labBtn1.TabIndex = 0;
             this.labBtn1.Text = "button1";
             this.labBtn1.UseVisualStyleBackColor = true;
@@ -685,17 +704,16 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1318);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 768);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 26, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(688, 38);
+            this.statusStrip1.Size = new System.Drawing.Size(416, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(183, 28);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
             // logTextBox
             // 
@@ -703,13 +721,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.logTextBox.Location = new System.Drawing.Point(15, 12);
-            this.logTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.logTextBox.Location = new System.Drawing.Point(8, 7);
+            this.logTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.logTextBox.Multiline = true;
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.ReadOnly = true;
             this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.logTextBox.Size = new System.Drawing.Size(664, 1300);
+            this.logTextBox.Size = new System.Drawing.Size(408, 759);
             this.logTextBox.TabIndex = 0;
             // 
             // bwForLoadCsvToDb
@@ -730,12 +748,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1991, 1356);
+            this.ClientSize = new System.Drawing.Size(1201, 790);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "CSV as Database Toolkit - Leqee - Sinri Edogawa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

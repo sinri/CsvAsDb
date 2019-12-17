@@ -93,6 +93,7 @@ namespace CsvAsDb
                 TheSqliteAgent = new SqliteAgent(CurrentTableName);
 
                 Regex regexForRemoveNumbers = new Regex("[0-9]+");
+                Regex regexForRemoveTailSigns = new Regex("[{}\\[\\]\\- ［]+$");
                 
                 
 
@@ -154,6 +155,7 @@ namespace CsvAsDb
                                 {
                                     case "REMOVE_NUMBERS":
                                         process_value = regexForRemoveNumbers.Replace(process_value, "");
+                                        process_value = regexForRemoveTailSigns.Replace(process_value, "");
                                         break;
                                     case "ORIGINAL":
                                     default:

@@ -35,8 +35,7 @@ Field_10 as  业务类型,
 Field_11 as 备注,
 Field_5 as 对方账号,
 sum(Field_6) as 总收入 ,
-sum(Field_7) as 总支出,
-sum(Field_6)+sum(Field_7) as 合计
+sum(Field_7) as 总支出
 from " + CurrentTableName + @" 
 group by Field_10 ,Field_11 ,Field_5 
 
@@ -47,8 +46,7 @@ select
 '合计' as 备注,
 '合计' as 对方账号,
 sum(Field_6) as 总收入 ,
-sum(Field_7) as 总支出,
-sum(Field_6) + sum(Field_7) as 合计
+sum(Field_7) as 总支出
 from  " + CurrentTableName;
         }
 

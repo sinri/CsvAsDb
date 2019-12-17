@@ -45,7 +45,8 @@ group by Field_Category";
             var v1 = dataRow[headerFieldNameMap["业务类型"]];
             var v2 = dataRow[headerFieldNameMap["备注"]];
 
-            dataRow[headerFieldNameMap["Field_Category"]] = "Unknown Category";
+            dataRow[headerFieldNameMap["Field_Category"]] = "未能归类"; 
+            TheHostForm.WriteLog("未能归类: "+v1+" | "+v2,"WARNING");
             foreach (var rule in CategoryRules)
             {
                 if(v1.Equals(rule["业务类型"]) && v2.StartsWith(rule["备注"]))

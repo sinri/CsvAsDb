@@ -61,11 +61,11 @@ namespace CsvAsDb.Properties {
         }
         
         /// <summary>
-        ///   查找类似 # About
+        ///   查找类似 # 支持信息
         ///
         ///----
         ///
-        ///## History
+        ///## 更新历史
         ///
         ///[ Beta Version, 2019-12-13 ]
         ///
@@ -79,18 +79,14 @@ namespace CsvAsDb.Properties {
         ///
         ///----
         ///
-        ///## Declaration
+        ///## 声明
+        ///
+        ///该程序使用了第三方库 System.Data.SQLite 以及 CsvHelper。该程序基于 .NET Framework 4.7 构建。
         ///
         ///Copyright 2019 Sinri Edogawa
         ///
-        ///If have any problems, contact &lt;ljni@leqee.com&gt;.
-        ///
-        ///----
-        ///
-        ///## Usage
-        ///
-        ///### Common Usage
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///维护者联系方式 &lt;ljni@leqee.com&gt;
+        ///        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string AboutContentFile {
             get {
@@ -99,7 +95,9 @@ namespace CsvAsDb.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Plugin WSQ_A 的本地化字符串。
+        ///   查找类似 王神A套餐 【WSQ_A】
+        ///
+        ///根据三个字段，业务类型、备注、对方账号，进行组合统计并作合计。选好文件夹和插件，导入，以默认SQL查询，如此傻瓜操作即可。 的本地化字符串。
         /// </summary>
         internal static string PluginDescWsqA {
             get {
@@ -108,7 +106,10 @@ namespace CsvAsDb.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Plugin YLN_A 的本地化字符串。
+        ///   查找类似 喻神A套餐 【YLN_A】 
+        ///
+        ///根据业务类型和备注，按照预设分类字典进行分类，并按照分类进行统计。
+        ///这个插件要求提前导入或编辑好分类字典，然后再导入，并按默认SQL查询即可。 的本地化字符串。
         /// </summary>
         internal static string PluginDescYlnA {
             get {
@@ -117,7 +118,19 @@ namespace CsvAsDb.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Beta 的本地化字符串。
+        ///   查找类似 张神A套餐 【ZY_A】 
+        ///
+        ///根据备注，按照预设分类字典进行分类，并按照分类和业务类型进行统计。按照指示，大小写不敏感。
+        ///这个插件要求提前导入或编辑好分类字典，然后再导入，并按默认SQL查询即可。 的本地化字符串。
+        /// </summary>
+        internal static string PluginDescZyA {
+            get {
+                return ResourceManager.GetString("PluginDescZyA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 1.0 的本地化字符串。
         /// </summary>
         internal static string ProjectVersion {
             get {
