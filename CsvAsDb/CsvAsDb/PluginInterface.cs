@@ -18,7 +18,7 @@ namespace CsvAsDb
         virtual public string GetSqlTemplate(string CurrentTableName)
         {
             //TheHostForm.WriteLog("PluginInterface.GetSqlTemplate running", "DEBUG");
-            return "select * \r\nfrom " + CurrentTableName + " \r\nlimit 5";
+            return TheHostForm.GetDefaultFullFieldsSqlTemplate();
         }
         virtual public void PreprocessRawRow(Dictionary<string, string> dataRow, Dictionary<string, string> headerFieldNameMap)
         {

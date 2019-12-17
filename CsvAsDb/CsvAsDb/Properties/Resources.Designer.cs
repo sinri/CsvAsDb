@@ -67,6 +67,10 @@ namespace CsvAsDb.Properties {
         ///
         ///## 更新历史
         ///
+        ///[ 1.0, 2019-12-17 ]
+        ///
+        ///在通用功能的基础上，通过插件实现王少巧、喻莉娜、张烨的需求。
+        ///
         ///[ Beta Version, 2019-12-13 ]
         ///
         ///Add the Leqee Finance CSV Worker main function here, which is inspired by Lina Yu the Great years before.
@@ -83,10 +87,7 @@ namespace CsvAsDb.Properties {
         ///
         ///该程序使用了第三方库 System.Data.SQLite 以及 CsvHelper。该程序基于 .NET Framework 4.7 构建。
         ///
-        ///Copyright 2019 Sinri Edogawa
-        ///
-        ///维护者联系方式 &lt;ljni@leqee.com&gt;
-        ///        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///Co [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string AboutContentFile {
             get {
@@ -130,7 +131,7 @@ namespace CsvAsDb.Properties {
         }
         
         /// <summary>
-        ///   查找类似 1.0 的本地化字符串。
+        ///   查找类似 1.1 的本地化字符串。
         /// </summary>
         internal static string ProjectVersion {
             get {

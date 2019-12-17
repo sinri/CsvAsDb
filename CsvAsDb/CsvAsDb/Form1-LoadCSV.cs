@@ -214,10 +214,22 @@ namespace CsvAsDb
                 }
                 else
                 {
-                    QuerySqlTextBox.Text = "select * \r\nfrom " + CurrentTableName + " \r\nlimit 5";
+                    QuerySqlTextBox.Text = GetDefaultFullFieldsSqlTemplate();
                 }
                 
             }
+        }
+
+        public string GetDefaultFullFieldsSqlTemplate()
+        {
+            var sql = "select \r\n";
+            var isFirst = true;
+            foreach (var entry in headerFieldNameMap)
+            {
+                sql += (isFirst ? "" : ", \r\n") + entry.Value + " as `" + entry.Key+"` ";
+                isFirst = false;
+            }
+            return sql + " \r\nfrom " + CurrentTableName + " \r\nwhere 1 \r\nlimit 5";
         }
     }
 }

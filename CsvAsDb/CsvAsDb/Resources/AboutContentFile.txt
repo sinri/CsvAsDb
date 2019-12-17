@@ -4,6 +4,10 @@
 
 ## 更新历史
 
+[ 1.1, 2019-12-17 ]
+
+优化了自由模式下默认SQL模板中输出字段的预设。
+
 [ 1.0, 2019-12-17 ]
 
 在通用功能的基础上，通过插件实现王少巧、喻莉娜、张烨的需求。
@@ -51,17 +55,34 @@ Parse CSV files in one directory with same header, turn the content to Sqlite Da
 
 此模式下一般原样导入CSV，并可自由筛选。
 
+SQL语句的基本套路：
+
+SELECT [字段们,英文逗号分隔，有需要时可以加 AS 显示名]
+FROM excel
+WHERE [条件们]
+GROUP BY [聚合用字段们，英文逗号分隔]
+LIMIT [显示行数] 
+OFFSET [跳过行数]
+
+其中前两行必须存在，OFFSET必须要有LIMIT。WHERE条件省略时默认拉取全部明细。
+
+下面的示例中，重点是WHERE部分。
+
 例【FREE-1】王神需要筛选出所有“业务类型”为“提现”的明细。
 操作步骤：按照自由模式默认原样导入，然后在查询器查找“业务类型”对应的字段名，如“Field_10”,那么王神只要在查询器中输入如下SQL：
 
-select * from excel where Field_10 = '提现'
+select * 
+from excel 
+where Field_10 = '提现'
 
 然后导出即可。
 
 例【FREE-2】王神需要筛选出所有“对方账号”包含“天猫”的明细。
 操作步骤：按照自由模式默认原样导入，然后在查询器查找“对方账号”对应的字段名，如“Field_5”,那么王神只要在查询器中输入如下SQL：
 
-select * from excel where Field_5 like '%天猫%'
+select * 
+from excel 
+where Field_5 like '%天猫%'
 
 然后导出即可。要注意的是，为了模糊搜索，搜索关键词两边的引号不能省略。
 
